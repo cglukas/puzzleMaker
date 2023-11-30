@@ -8,15 +8,16 @@ PuzzleWriter::PuzzleWriter()
 
 }
 
-PuzzleWriter::PuzzleWriter(std::string filepath)
+PuzzleWriter::PuzzleWriter(std::string filepath,  std::vector<PuzzlePiece> pieces)
 {
     this->filepath = filepath;
+    this->pieces = pieces;
 }
 
 /*
  * Save the puzzle to the filepath of the writer.
  * */
-int PuzzleWriter::savePuzzle(std::vector<PuzzlePiece> pieces)
+int PuzzleWriter::savePuzzle()
 {
     SVG::SVG root;
 
@@ -38,13 +39,13 @@ int PuzzleWriter::savePuzzle(std::vector<PuzzlePiece> pieces)
 }
 
 TEST_CASE("Save to the puzzle"){
-    PuzzleWriter w = PuzzleWriter("./test.svg");
     PuzzlePiece p;
     p.addVertex(0,0);
     p.addVertex(100,0);
     p.addVertex(100,100);
 
-    w.savePuzzle({p});
+    PuzzleWriter w = PuzzleWriter("./test.svg", {p});
+    w.savePuzzle();
 
     CHECK(access("./test.svg", F_OK) != -1);
     std::remove("./test.svg");

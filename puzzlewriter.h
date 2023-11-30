@@ -10,10 +10,11 @@ class PuzzleWriter
 {
 private:
     std::string filepath;
+    std::vector<PuzzlePiece> pieces;
 public:
     PuzzleWriter();
-    PuzzleWriter(std::string filepath);
-    int savePuzzle(std::vector<PuzzlePiece> pieces);
+    PuzzleWriter(std::string filepath, std::vector<PuzzlePiece> pieces);
+    int savePuzzle();
 };
 
 #endif // PUZZLEWRITER_H

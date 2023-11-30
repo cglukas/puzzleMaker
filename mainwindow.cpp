@@ -50,8 +50,8 @@ void MainWindow::saveWithDialog()
     if(!fileName.endsWith(".svg")){
         fileName.append(".svg");
     }
-    PuzzleWriter puzzle_writer(fileName.toStdString());
-    puzzle_writer.savePuzzle(puzzle);
+    PuzzleWriter puzzle_writer(fileName.toStdString(), puzzle);
+    puzzle_writer.savePuzzle();
 }
 
 
