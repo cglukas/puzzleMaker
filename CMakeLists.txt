@@ -28,6 +28,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         test_vertex.cpp
         test_puzzle_piece.cpp
         puzzleview.h puzzleview.cpp
+        puzzlewriter.h puzzlewriter.cpp
+        svg.hpp
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET puzzle APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
