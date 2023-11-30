@@ -13,7 +13,7 @@ public:
     ~MainWindow();
     void buildUI();
 
-public slots:
+private slots:
     void saveWithDialog();
 
 private:
