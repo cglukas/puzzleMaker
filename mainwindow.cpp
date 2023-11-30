@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+#include "puzzleview.h"
 
 #include <qboxlayout.h>
 #include <qpushbutton.h>
@@ -13,6 +14,6 @@ MainWindow::~MainWindow() {}
  * Build the main user interface for the mainwindow.
  * */
 void MainWindow::buildUI(){
-    QPushButton *my_button = new QPushButton("HelloWorld");
-    setCentralWidget(my_button);
+    PuzzleView *my_view = new PuzzleView();
+    setCentralWidget(my_view);
 }
