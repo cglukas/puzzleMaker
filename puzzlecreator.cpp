@@ -11,11 +11,11 @@ PuzzleCreator::PuzzleCreator() {}
  * @param height size of the pieces in y direction
  * @return the created puzzle as a vector of puzzle pieces. Row by row.
  */
-std::vector<PuzzlePiece> PuzzleCreator::generateGridPuzzle(int count_x, int count_y, int width, int height)
+Puzzle PuzzleCreator::generateGridPuzzle(int count_x, int count_y, int width, int height)
 {
     int x = 0;
     int y = 0;
-    std::vector<PuzzlePiece> puzzle;
+    Puzzle puzzle;
     for(int row = 0; row < count_y; row++){
         for(int column = 0; column < count_x; column++){
             PuzzlePiece p;
@@ -23,7 +23,7 @@ std::vector<PuzzlePiece> PuzzleCreator::generateGridPuzzle(int count_x, int coun
             p.addVertex(x + width, y);
             p.addVertex(x + width, y + height);
             p.addVertex(x, y + height);
-            puzzle.push_back(p);
+            puzzle.addPiece(p);
 
             x += width;
         }

@@ -61,5 +61,5 @@ void MainWindow::buildUI(){
     main_widget->setLayout(layout);
 
     layout->addWidget(puzzle_view);
-    puzzle_view->drawPuzzlePieces(puzzle);
+    puzzle_view->drawPuzzlePieces(puzzle.getPieces());
 }

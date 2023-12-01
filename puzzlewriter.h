@@ -1,7 +1,7 @@
 #ifndef PUZZLEWRITER_H
 #define PUZZLEWRITER_H
 
-#include "puzzle_piece.h"
+#include "puzzle.h"
 
 #include <String>
 
@@ -10,10 +10,10 @@ class PuzzleWriter
 {
 private:
     std::string filepath;
-    std::vector<PuzzlePiece> pieces;
+    Puzzle puzzle;
 public:
     PuzzleWriter();
-    PuzzleWriter(std::string filepath, std::vector<PuzzlePiece> pieces);
+    PuzzleWriter(std::string filepath, Puzzle puzzle);
     int savePuzzle();
 };
 

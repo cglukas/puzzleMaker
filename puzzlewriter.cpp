@@ -8,10 +8,10 @@ PuzzleWriter::PuzzleWriter()
 
 }
 
-PuzzleWriter::PuzzleWriter(std::string filepath,  std::vector<PuzzlePiece> pieces)
+PuzzleWriter::PuzzleWriter(std::string filepath, Puzzle puzzle)
 {
     this->filepath = filepath;
-    this->pieces = pieces;
+    this->puzzle = puzzle;
 }
 
 /*
@@ -24,7 +24,7 @@ int PuzzleWriter::savePuzzle()
     root.style("polygon").set_attr("fill", "red");
     auto shapes = root.add_child<SVG::Group>();
 
-    for(PuzzlePiece p : pieces){
+    for(PuzzlePiece p : puzzle.getPieces()){
         std::vector<SVG::Point> points;
         for(Vertex v : p.getVertecies()){
             points.push_back(SVG::Point(v.getX(), v.getY()));
@@ -44,7 +44,7 @@ TEST_CASE("Save to the puzzle"){
     p.addVertex(100,0);
     p.addVertex(100,100);
 
-    PuzzleWriter w = PuzzleWriter("./test.svg", {p});
+    PuzzleWriter w = PuzzleWriter("./test.svg", Puzzle({p}));
     w.savePuzzle();
 
     CHECK(access("./test.svg", F_OK) != -1);
