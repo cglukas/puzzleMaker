@@ -36,6 +36,7 @@ int PuzzleWriter::savePuzzle()
 
     std::ofstream outfile(filepath);
     outfile << std::string(root);
+    return 1;
 }
 
 TEST_CASE("Save to the puzzle"){
