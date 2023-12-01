@@ -13,10 +13,10 @@ public:
     int getX();
     int getY();
     bool operator ==(Vertex const & other) const {
-        return this->x == other.x && this->x == other.x;
+        return this->x == other.x && this->y == other.y;
     }
     bool operator !=(Vertex const & other) const {
-        return this->x != other.x && this->x != other.x;
+        return this->x != other.x || this->y != other.y;
     }
 };
 #endif // VERTEX_H

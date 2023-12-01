@@ -26,6 +26,7 @@ TEST_CASE("Test equality"){
 
 
 TEST_CASE("Test inequality"){
+    CHECK(Vertex(0, 0) != Vertex(0, 5));
     CHECK(Vertex(1,2) != Vertex(2,1));
     CHECK(Vertex(-1,0) != Vertex(900,900));
 }
