@@ -21,7 +21,7 @@ int PuzzleWriter::savePuzzle()
 {
     SVG::SVG root;
 
-    root.style("polygon").set_attr("fill", "red");
+    root.style("polygon").set_attr("fill", "none").set_attr("stroke", "red");
     auto shapes = root.add_child<SVG::Group>();
 
     for(PuzzlePiece p : pieces){
