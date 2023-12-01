@@ -33,3 +33,17 @@ Puzzle PuzzleCreator::generateGridPuzzle(int count_x, int count_y, int width, in
 
     return puzzle;
 }
+
+/**
+ * Generate a puzzle with a voronoi structure.
+ *
+ * @brief PuzzleCreator::generateVoronoiPuzzle
+ * @param count_pieces
+ * @param puzzle_width
+ * @param puzzle_height
+ * @return
+ */
+Puzzle PuzzleCreator::generateVoronoiPuzzle(int count_pieces, int puzzle_width, int puzzle_height)
+{
+    return Puzzle();
+}
