@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+#include "puzzlecreator.h"
 #include "puzzleview.h"
 #include "puzzlewriter.h"
 
@@ -13,17 +14,8 @@ MainWindow::MainWindow(QWidget *parent)
 {
     puzzle_view = new PuzzleView();
 
-    PuzzlePiece p;
-    p.addVertex(10,10);
-    p.addVertex(10,100);
-    p.addVertex(100,100);
-    p.addVertex(100,10);
-    PuzzlePiece r;
-    r.addVertex(110,10);
-    r.addVertex(110,100);
-    r.addVertex(200,100);
-    r.addVertex(200,10);
-    puzzle = {p,r};
+    PuzzleCreator creator;
+    puzzle = creator.generateGridPuzzle(10, 8, 100, 80);
 }
 
 MainWindow::~MainWindow() {}
@@ -47,6 +39,9 @@ void MainWindow::createMenus()
 void MainWindow::saveWithDialog()
 {
     QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"), "", tr("SVG (*.svg)"));
+    if(fileName == ""){
+        return;
+    }
     if(!fileName.endsWith(".svg")){
         fileName.append(".svg");
     }
@@ -66,5 +61,5 @@ void MainWindow::buildUI(){
     main_widget->setLayout(layout);
 
     layout->addWidget(puzzle_view);
-    puzzle_view->drawPuzzlePieces(puzzle);
+    puzzle_view->drawPuzzlePieces(puzzle.getPieces());
 }

@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include "puzzleview.h"
+#include "puzzle.h"
 #include <QMainWindow>
 
 class MainWindow : public QMainWindow
@@ -13,13 +14,13 @@ public:
     ~MainWindow();
     void buildUI();
 
-public slots:
+private slots:
     void saveWithDialog();
 
 private:
     void createMenus();
     void createPuzzleView();
     PuzzleView *puzzle_view;
-    std::vector<PuzzlePiece> puzzle;
+    Puzzle puzzle;
 };
 #endif // MAINWINDOW_H
