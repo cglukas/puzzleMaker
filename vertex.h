@@ -1,5 +1,6 @@
 #ifndef VERTEX_H
 #define VERTEX_H
+#include <ostream>
 
 
 class Vertex
@@ -18,5 +19,8 @@ public:
     bool operator !=(Vertex const & other) const {
         return this->x != other.x || this->y != other.y;
     }
+    friend std::ostream& operator<<(std::ostream& os, Vertex const & v);
 };
+
+
 #endif // VERTEX_H
