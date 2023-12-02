@@ -21,7 +21,7 @@ int PuzzleWriter::savePuzzle()
 {
     SVG::SVG root;
 
-    root.style("polygon").set_attr("fill", "red");
+    root.style("polygon").set_attr("fill", "none").set_attr("stroke", "red");
     auto shapes = root.add_child<SVG::Group>();
 
     for(PuzzlePiece p : pieces){
@@ -36,6 +36,7 @@ int PuzzleWriter::savePuzzle()
 
     std::ofstream outfile(filepath);
     outfile << std::string(root);
+    return 1;
 }
 
 TEST_CASE("Save to the puzzle"){

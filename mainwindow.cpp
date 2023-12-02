@@ -47,6 +47,9 @@ void MainWindow::createMenus()
 void MainWindow::saveWithDialog()
 {
     QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"), "", tr("SVG (*.svg)"));
+    if(fileName == ""){
+        return;
+    }
     if(!fileName.endsWith(".svg")){
         fileName.append(".svg");
     }
