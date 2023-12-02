@@ -7,13 +7,12 @@
 class Edge
 {
 private:
-    Vertex *start;
-    Vertex *end;
+    Vertex start;
+    Vertex end;
 public:
-    explicit Edge(Vertex *v1, Vertex *v2);;
-    bool operator==(Edge const & other) const {
-        return this->start == other.start && this->end == other.end;
-    };
+    explicit Edge(Vertex start_, Vertex end_): start(start_), end(end_) {};
+    Vertex getVertexOnEdge(int percentage);
+    bool operator==(Edge const & other) const;;
 };
 
 #endif // EDGE_H
