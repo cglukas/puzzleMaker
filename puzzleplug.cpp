@@ -1,17 +1,16 @@
 #include "doctest.h"
 #include "puzzleplug.h"
+#include "puzzle_piece.h"
 
 #include <stdexcept>
-
-PuzzlePlug::PuzzlePlug() {}
 
 TEST_CASE("Test puzzle pieces creation."){
     PuzzlePiece p1;
     PuzzlePiece p2;
-    PuzzlePlug plug = PuzzlePlug(&p1, &p2);
+    PuzzlePlug plug = PuzzlePlug(p1, p2);
 
-    CHECK(*plug.getP1() == p1);
-    CHECK(*plug.getP2() == p2);
+    CHECK(plug.getP1() == p1);
+    CHECK(plug.getP2() == p2);
 }
 
 /**
@@ -21,9 +20,8 @@ TEST_CASE("Test puzzle pieces creation."){
  */
 Vertex PuzzlePlug::getPosition()
 {
-    //TODO: implement this with a edge approach.
-    auto edges1 = p1->getEdges();
-    auto edges2 = p2->getEdges();
+    auto edges1 = p1.getEdges();
+    auto edges2 = p2.getEdges();
 
     if (edges1.empty() || edges2.empty()){
         throw std::runtime_error(
@@ -54,7 +52,7 @@ Vertex PuzzlePlug::getPosition()
 TEST_CASE("Get the plug position between two pieces"){
     PuzzlePiece p1;
     PuzzlePiece p2;
-    PuzzlePlug plug(&p1, &p2);
+    PuzzlePlug plug(p1, p2);
 
     SUBCASE("First"){
         p1.addVertex(0, 0);

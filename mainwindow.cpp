@@ -19,10 +19,11 @@ MainWindow::MainWindow(QWidget *parent)
     p.addVertex(100,100);
     p.addVertex(100,10);
     PuzzlePiece r;
-    r.addVertex(110,10);
-    r.addVertex(110,100);
+    r.addVertex(100,10);
+    r.addVertex(100,100);
     r.addVertex(200,100);
     r.addVertex(200,10);
+    p.connectToPiece(r);
     puzzle = {p,r};
 }
 

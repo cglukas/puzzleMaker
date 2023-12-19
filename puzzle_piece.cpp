@@ -54,6 +54,22 @@ TEST_CASE("PuzzlePiece vertecies can be retrieved as edges"){
     CHECK(edges[2] == Edge(c, a));
 }
 
+/**
+ * Connect another puzzle piece to this piece.
+ *
+ * Thereby adding the created plug to this piece as output plug
+ * and on the other as an input plug.
+ *
+ * @brief PuzzlePiece::connectToPiece
+ * @param other
+ * @return
+ */
+void PuzzlePiece::connectToPiece(PuzzlePiece other)
+{
+    PuzzlePlug plug = PuzzlePlug(*this, other);
+    this->output_plugs.push_back(plug);
+    other.input_plugs.push_back(plug);
+}
 
 TEST_CASE("PuzzlePiece equality comparison.") {
     PuzzlePiece p1;

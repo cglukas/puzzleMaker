@@ -18,8 +18,9 @@ void PuzzleView::drawPuzzlePieces(std::vector<PuzzlePiece> puzzle_pieces)
 
 void PuzzleView::paintEvent(QPaintEvent *event){
     QPainter painter(this);
-    painter.setPen(Qt::blue);
+
     for(PuzzlePiece piece : puzzle_pieces){
+        painter.setPen(Qt::blue);
         for(int i = 0; i < piece.getVertecies().size(); i++){
             Vertex v1 = piece.getVertecies()[i];
             int k = (i +1) % piece.getVertecies().size();
@@ -28,5 +29,17 @@ void PuzzleView::paintEvent(QPaintEvent *event){
             painter.drawLine(v1.getX(), v1.getY(), v2.getX(), v2.getY());
         }
 
+        painter.setPen(Qt::red);
+        for (PuzzlePlug plug : piece.getInputPlugs()){
+            plug.getP1().getVertecies()[0];
+            // painter.drawEllipse(QPoint(pos.getX(), pos.getY()), 10, 10);
+        }
+
+        // painter.setPen(Qt::black);
+        // for (PuzzlePlug *plug : piece.getOutputPlugs()){
+        //     auto pos =plug->getPosition();
+        //     painter.drawEllipse(QPoint(pos.getX(), pos.getY()), 10, 10);
+        // }
     }
+
 }
